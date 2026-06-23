@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 1 — O Mapa da Prova e a Estratégia de Pontuação</title>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --warn:#8a2b2b; --good:#2f5d3a; --gold:#9a7a1f; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.55;}
+  .wrap{max-width:720px; margin:0 auto; padding:3.5rem 1.5rem 6rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--marine2); margin-bottom:.4rem;}
+  h1{font-size:2rem; line-height:1.12; margin:0 0 .3rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0 0 2rem;}
+  h2{font-size:1.3rem; margin:2.4rem 0 .5rem; color:var(--marine);}
+  p{margin:.6rem 0;}
+  .lede{font-size:1.1rem;}
+  .callout{background:#f3f1e3; border-left:4px solid var(--marine); padding:.8rem 1rem; margin:1.3rem 0; border-radius:0 4px 4px 0;}
+  .warn{background:#f7ecec; border-left-color:var(--warn);} .warn strong{color:var(--warn);}
+  .good{background:#eef3ec; border-left-color:var(--good);}
+  .win{background:#f5f1df; border:1px solid var(--gold); border-radius:6px; padding:1rem 1.2rem; margin:1.5rem 0;}
+  .win b{color:var(--gold);}
+  ul{margin:.4rem 0 .8rem 1.2rem;} li{margin:.25rem 0;}
+  /* quiz */
+  .q{border:1px solid var(--rule); border-radius:8px; padding:1.1rem 1.2rem; margin:1.4rem 0; background:#fffefa;}
+  .q .stem{font-weight:600; margin-bottom:.7rem;}
+  .opt{display:block; width:100%; text-align:left; font:inherit; font-size:.98rem; background:#fbfaf2;
+       border:1px solid var(--rule); border-radius:6px; padding:.6rem .8rem; margin:.4rem 0; cursor:pointer;
+       transition:background .12s,border-color .12s;}
+  .opt:hover{background:#f2f0e2;}
+  .opt.correct{background:#e7f0e7; border-color:var(--good); color:var(--good); font-weight:600;}
+  .opt.wrong{background:#f5e6e6; border-color:var(--warn); color:var(--warn);}
+  .opt:disabled{cursor:default;}
+  .fb{margin-top:.6rem; font-size:.92rem; padding:.55rem .7rem; border-radius:5px; display:none;}
+  .fb.show{display:block;}
+  .fb.ok{background:#eef3ec; color:var(--good);} .fb.no{background:#f7ecec; color:var(--warn);}
+  .score{font-size:1.05rem; font-weight:600; margin-top:1rem; color:var(--marine);}
+  a{color:var(--marine2);}
+  .src{background:#eef1f5; border-radius:6px; padding:1rem 1.2rem; margin:1.5rem 0;}
+  .nav{margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.92rem; color:var(--muted);}
+  .ask{background:#1f3a5f; color:#fff; border-radius:6px; padding:1rem 1.2rem; margin:1.8rem 0;}
+  .ask b{color:#ffd98a;}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:2.2rem 1.1rem 4rem} }
+  @media print{ body{background:#fff} .opt{-webkit-print-color-adjust:exact} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Lição 1 · Estratégia · ASON</div>
+  <h1>O Mapa da Prova e a Lógica da Pontuação</h1>
+  <p class="sub">Antes de uma única integral ou um único phrasal verb: entender o jogo que você vai jogar.</p>
+
+  <p class="lede">Quase todo candidato estuda <em>conteúdo</em> e ignora a <em>arquitetura de pontuação</em>.
+  Isso é um erro caro. Sua primeira vitória não é resolver uma equação — é saber exatamente onde os pontos
+  moram e qual erro elimina você na hora. Cinco minutos aqui mudam como você estuda nos próximos nove meses.</p>
+
+  <h2>Os três fatos que governam tudo</h2>
+  <ul>
+    <li><strong>4 matérias, 40 questões, 200 pontos.</strong> Português + Inglês (Humanas, 100 pts) e
+    Matemática + Física (Exatas, 100 pts). Cada questão vale 5 pontos.</li>
+    <li><strong>Zero em qualquer matéria = eliminação.</strong> Não importa se você fez 100 nas outras três.
+    Uma matéria zerada apaga toda a prova.</li>
+    <li><strong>É classificatório:</strong> a banca convoca os <strong>3× melhores</strong> em relação às vagas.
+    Não basta "passar" — é preciso pontuar alto. E no desempate, <strong>exatas vem primeiro</strong>.</li>
+  </ul>
+
+  <div class="callout good">
+    <strong>O que isso significa para VOCÊ (engenharia):</strong> Matemática e Física são sua arma de
+    classificação <em>e</em> seu trunfo no desempate. Mas a armadilha é Português e Inglês — não para gabaritar,
+    e sim para <strong>nunca chegar perto do zero</strong>. A estratégia vencedora: <em>maximizar exatas, blindar humanas</em>.
+  </div>
+
+  <h2>Teste rápido — recuperação ativa</h2>
+  <p>Não releia. Tente lembrar. Errar aqui é barato e ensina mais do que acertar relendo.</p>
+
+  <div class="q" id="q1">
+    <div class="stem">1. Você fez 95 em Matemática, 90 em Física, 80 em Português e <strong>0 em Inglês</strong>. O que acontece?</div>
+    <button class="opt" data-ok="0">Passa com folga: somou 265 dos 200</button>
+    <button class="opt" data-ok="1">É eliminado, porque zerou uma matéria</button>
+    <button class="opt" data-ok="0">Passa, mas perde pontos no desempate final</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <div class="stem">2. Quantos pontos vale cada questão, e quantas questões há por matéria?</div>
+    <button class="opt" data-ok="0">Cada questão dez pontos; cinco por matéria</button>
+    <button class="opt" data-ok="1">Cada questão cinco pontos; dez por matéria</button>
+    <button class="opt" data-ok="0">Cada questão dois pontos; vinte por matéria</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <div class="stem">3. Dois candidatos empatam na soma total. Quem leva a melhor classificação?</div>
+    <button class="opt" data-ok="1">Quem tirou a maior nota na prova de exatas</button>
+    <button class="opt" data-ok="0">Quem tirou a maior nota na prova de humanas</button>
+    <button class="opt" data-ok="0">Quem acertou mais questões na prova de inglês</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <div class="stem">4. Dado seu perfil, qual estratégia de estudo é a mais racional?</div>
+    <button class="opt" data-ok="0">Focar tudo em exatas e ignorar humanas de vez</button>
+    <button class="opt" data-ok="1">Maximizar exatas e blindar humanas contra o zero</button>
+    <button class="opt" data-ok="0">Dividir o tempo igualzinho entre as quatro sempre</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="score" id="score"></div>
+
+  <div class="win">
+    <p><b>★ Sua vitória de hoje:</b> você agora pensa como estrategista, não só como estudante. Você sabe que
+    <strong>exatas classifica</strong>, <strong>o zero elimina</strong>, e que sua missão é
+    <strong>maximizar Mat+Física e nunca zerar Português/Inglês</strong>. Toda lição daqui pra frente se encaixa nesse mapa.</p>
+  </div>
+
+  <div class="callout warn">
+    <strong>Não esqueça do corpo.</strong> Depois da prova vem o Teste de Suficiência Física (correr 2.400 m,
+    nadar 25 m, flutuar 10 min). Não é conteúdo de estudo — é treino. Comece <em>agora</em>, em paralelo, mesmo que leve.
+  </div>
+
+  <div class="src">
+    <strong>📖 Fonte primária recomendada:</strong> leia, com calma, os <strong>itens 5 e 9 do Edital
+    PS ASON-01 e 02/2026</strong> (etapas e exame de conhecimentos) e o <strong>Anexo II</strong> (programa).
+    É a fonte de verdade — toda banca futura seguirá o mesmo molde. Resumo navegável no
+    <a href="../reference/edital-mapa-ason.html">Mapa do Concurso ASON →</a>
+  </div>
+
+  <div class="ask">
+    <b>Eu sou seu professor.</b> Tem algo que não fechou? Quer que eu monte um diagnóstico rápido por matéria
+    para descobrirmos seu nível real em Cálculo, ou prefere começar reativando um tópico de Matemática?
+    <strong>É só me perguntar no chat</strong> — me diga também quantas horas por semana você consegue estudar,
+    para eu calibrar o cronograma de 9 meses.
+  </div>
+
+  <div class="nav">
+    Lição 1 de muitas · Próximo provável: diagnóstico de Exatas ou reativação de <em>Funções &amp; Limites</em>.
+    Referência: <a href="../reference/edital-mapa-ason.html">Mapa do Concurso ASON</a>.
+  </div>
+</div>
+
+<script>
+  var total = document.querySelectorAll('.q').length, answered = 0, correct = 0;
+  document.querySelectorAll('.q').forEach(function(q){
+    var fb = q.querySelector('.fb'), done = false;
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(done) return; done = true; answered++;
+        var ok = btn.dataset.ok === '1';
+        if(ok){ correct++; btn.classList.add('correct'); fb.classList.add('ok'); fb.textContent='✓ Isso. ' + msg(q.id,true); }
+        else { btn.classList.add('wrong'); fb.classList.add('no'); fb.textContent='✗ ' + msg(q.id,false);
+               q.querySelector('[data-ok="1"]').classList.add('correct'); }
+        fb.classList.add('show');
+        q.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; });
+        if(answered === total){
+          var s = document.getElementById('score');
+          s.textContent = 'Você acertou ' + correct + ' de ' + total + '. ' +
+            (correct===total ? 'Mapa dominado. ⚓' : 'Releia o que escorregou — esses fatos são a base de tudo.');
+        }
+      });
+    });
+  });
+  function msg(id, ok){
+    var m = {
+      q1: 'Zerar uma matéria elimina, ponto final. E não existe "265 de 200" — o máximo é 200.',
+      q2: '5 pontos × 10 questões × 4 matérias = 200 pontos no total.',
+      q3: 'O primeiro critério de desempate é a nota de exatas — vantagem de quem vem de engenharia.',
+      q4: 'Maximizar exatas (classifica e desempata) e blindar humanas (para nunca zerar) é o ótimo.'
+    };
+    return m[id];
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 4 — Diagnóstico de Humanas</title>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --warn:#8a2b2b; --good:#2f5d3a; --gold:#9a7a1f;
+         --port:#7a3b16; --eng:#2f5d3a; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.55;}
+  .wrap{max-width:720px; margin:0 auto; padding:3.5rem 1.5rem 6rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--marine2); margin-bottom:.4rem;}
+  h1{font-size:2rem; line-height:1.12; margin:0 0 .3rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0 0 1.6rem;}
+  .lede{font-size:1.06rem;}
+  p{margin:.6rem 0;}
+  .band{font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin:2rem 0 .3rem; padding:.3rem .6rem; border-radius:4px; color:#fff; display:inline-block;}
+  .band.p{background:var(--port);} .band.e{background:var(--eng);}
+  .ask{background:#1f3a5f; color:#fff; border-radius:6px; padding:1rem 1.2rem; margin:1.8rem 0;}
+  .ask b{color:#ffd98a;}
+  a{color:var(--marine2);}
+  .lvl{display:inline-block; font-size:.7rem; font-style:normal; text-transform:uppercase; letter-spacing:.05em;
+       background:#e8e6d6; color:var(--muted); padding:.08rem .4rem; border-radius:3px; margin-left:.4rem; vertical-align:middle;}
+  .q{border:1px solid var(--rule); border-radius:8px; padding:1.1rem 1.2rem; margin:1.1rem 0; background:#fffefa;}
+  .q .stem{font-weight:600; margin-bottom:.2rem;}
+  .topic{font-size:.8rem; color:var(--muted); font-style:italic; margin-bottom:.6rem;}
+  .opt{display:block; width:100%; text-align:left; font:inherit; font-size:1rem; background:#fbfaf2;
+       border:1px solid var(--rule); border-radius:6px; padding:.55rem .8rem; margin:.35rem 0; cursor:pointer;}
+  .opt:hover{background:#f2f0e2;}
+  .opt.correct{background:#e7f0e7; border-color:var(--good); color:var(--good); font-weight:600;}
+  .opt.wrong{background:#f5e6e6; border-color:var(--warn); color:var(--warn);}
+  .opt:disabled{cursor:default;}
+  .fb{margin-top:.55rem; font-size:.9rem; padding:.5rem .7rem; border-radius:5px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:#eef3ec; color:var(--good);} .fb.no{background:#f7ecec; color:var(--warn);}
+  #result{display:none; margin-top:1.8rem; padding:1.2rem 1.3rem; border:1px solid var(--gold);
+          background:#f5f1df; border-radius:8px;}
+  #result.show{display:block;} #result h2{margin-top:0; color:var(--marine);}
+  #report{background:#fff; border:1px dashed var(--marine2); border-radius:6px; padding:.7rem .9rem;
+          font-family:ui-monospace,Menlo,monospace; font-size:.85rem; white-space:pre-wrap; margin:.8rem 0;}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:2.2rem 1.1rem 4rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Lição 4 · Diagnóstico · Humanas</div>
+  <h1>Onde você está em Português e Inglês</h1>
+  <p class="sub">O mesmo sonar que calibrou Exatas — agora na sua área de maior risco.</p>
+
+  <p class="lede">Oito questões, quatro de cada matéria, mirando as <strong>pegadinhas clássicas</strong> que a
+  banca adora: crase, concordância, regência; tenses, condicionais, falsos cognatos, discurso indireto.
+  De cabeça, sem pesquisar. No fim, a tela monta o relatório para você me mandar.</p>
+
+  <span class="band p">Português</span>
+
+  <div class="q" id="q1">
+    <div class="stem">1. Qual palavra está acentuada <strong>corretamente</strong>? <span class="lvl">básico</span></div>
+    <div class="topic">Tópico: Acentuação</div>
+    <button class="opt" data-ok="0">rúbrica</button>
+    <button class="opt" data-ok="0">gratuíto</button>
+    <button class="opt" data-ok="1">tórax</button>
+    <button class="opt" data-ok="0">rítmo</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <div class="stem">2. Em qual frase a <strong>crase</strong> está correta? <span class="lvl">médio</span></div>
+    <div class="topic">Tópico: Crase</div>
+    <button class="opt" data-ok="1">Refiro-me à pessoa certa.</button>
+    <button class="opt" data-ok="0">Vou à pé para o trabalho.</button>
+    <button class="opt" data-ok="0">Entreguei o documento à ela.</button>
+    <button class="opt" data-ok="0">Assisti à um filme ontem.</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <div class="stem">3. Assinale a frase com <strong>concordância</strong> correta. <span class="lvl">médio</span></div>
+    <div class="topic">Tópico: Concordância verbal</div>
+    <button class="opt" data-ok="0">Fazem cinco anos que ele partiu.</button>
+    <button class="opt" data-ok="1">Faz cinco anos que ele partiu.</button>
+    <button class="opt" data-ok="0">Houveram muitos problemas ali.</button>
+    <button class="opt" data-ok="0">Tratam-se de questões difíceis.</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <div class="stem">4. Em qual frase a <strong>regência verbal</strong> está correta? <span class="lvl">médio/difícil</span></div>
+    <div class="topic">Tópico: Regência verbal</div>
+    <button class="opt" data-ok="1">Cheguei ao destino cansado.</button>
+    <button class="opt" data-ok="0">Assisti o jogo pela televisão.</button>
+    <button class="opt" data-ok="0">Prefiro cinema do que teatro.</button>
+    <button class="opt" data-ok="0">Cheguei no destino cansado.</button>
+    <div class="fb"></div>
+  </div>
+
+  <span class="band e">Inglês</span>
+
+  <div class="q" id="q5">
+    <div class="stem">5. Choose the correct sentence. <span class="lvl">básico</span></div>
+    <div class="topic">Tópico: Verb tenses (past × present perfect)</div>
+    <button class="opt" data-ok="0">I have seen him yesterday.</button>
+    <button class="opt" data-ok="1">I saw him yesterday.</button>
+    <button class="opt" data-ok="0">I have see him yesterday.</button>
+    <button class="opt" data-ok="0">I seen him yesterday.</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q6">
+    <div class="stem">6. Complete: <em>If I ___ rich, I would travel the world.</em> <span class="lvl">médio</span></div>
+    <div class="topic">Tópico: Conditionals (tipo 2)</div>
+    <button class="opt" data-ok="1">were</button>
+    <button class="opt" data-ok="0">am</button>
+    <button class="opt" data-ok="0">will be</button>
+    <button class="opt" data-ok="0">had been</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q7">
+    <div class="stem">7. <em>"Actually, I don't agree."</em> — a palavra <em>actually</em> significa: <span class="lvl">médio</span></div>
+    <div class="topic">Tópico: Falsos cognatos</div>
+    <button class="opt" data-ok="0">Atualmente</button>
+    <button class="opt" data-ok="1">Na verdade</button>
+    <button class="opt" data-ok="0">Eventualmente</button>
+    <button class="opt" data-ok="0">Casualmente</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q8">
+    <div class="stem">8. <em>She said: "I am tired."</em> — discurso indireto correto: <span class="lvl">difícil</span></div>
+    <div class="topic">Tópico: Reported speech</div>
+    <button class="opt" data-ok="1">She said that she was tired.</button>
+    <button class="opt" data-ok="0">She said that she is tired.</button>
+    <button class="opt" data-ok="0">She told that she was tired.</button>
+    <button class="opt" data-ok="0">She said that I was tired.</button>
+    <div class="fb"></div>
+  </div>
+
+  <div id="result">
+    <h2 id="rtitle"></h2>
+    <p id="rtext"></p>
+    <p>Copie isto e me mande no chat:</p>
+    <div id="report"></div>
+  </div>
+
+  <div class="ask">
+    <b>Sou seu professor.</b> Mande o relatório no chat e eu defino a primeira lição de Humanas no ponto exato.
+    Travou em alguma? Pergunte — explico a regra na hora (crase e regência são as que mais rendem ponto na prova).
+  </div>
+  <p style="font-size:.9rem;color:#6b6b60">Plano: <a href="../reference/cronograma-9-meses.html">Cronograma 9 Meses</a> ·
+  Programa: <a href="../reference/edital-mapa-ason.html">Mapa do Concurso ASON</a> ·
+  Anterior: <a href="0003-series-de-taylor.html">Lição 3 — Séries de Taylor</a></p>
+</div>
+
+<script>
+  var topics = {q1:'PT: Acentuação',q2:'PT: Crase',q3:'PT: Concordância',q4:'PT: Regência',
+                q5:'EN: Tenses',q6:'EN: Conditionals',q7:'EN: Falsos cognatos',q8:'EN: Reported speech'};
+  var fbmsg = {
+    q1:'"tórax" (paroxítona terminada em -x) é acentuada. Os outros são pegadinhas: rubrica, gratuito e ritmo NÃO têm acento.',
+    q2:'"Refiro-me à pessoa" (a prep. + a artigo = à). Erros: "a pé" (sem crase), pronome "ela" (sem crase), "a um" (artigo indefinido, sem crase).',
+    q3:'"Faz cinco anos" — verbo fazer indicando tempo é impessoal, fica no singular. (Houve, trata-se: mesma lógica de impessoalidade.)',
+    q4:'"Chegar" rege a preposição "a" (cheguei AO destino, nunca "no"). Assistir (=ver) pede "a" (ao jogo); preferir pede "a", não "do que".',
+    q5:'Com "yesterday" (tempo definido no passado) usa-se Simple Past: "I saw him yesterday." Present perfect não combina com tempo passado específico.',
+    q6:'Conditional tipo 2 (hipótese irreal): "If I WERE rich, I would...". Usa-se "were" para todas as pessoas.',
+    q7:'"Actually" = na verdade / de fato. Falso cognato clássico: NÃO é "atualmente" (isso seria "currently/nowadays").',
+    q8:'Reported speech recua o tempo: "am" → "was". E "say" não leva objeto ("told" exigiria "told me").'
+  };
+  var total = 8, answered = 0, correct = 0, missed = [], pt = 0, en = 0;
+  document.querySelectorAll('.q').forEach(function(q){
+    var fb = q.querySelector('.fb'), done=false;
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(done) return; done=true; answered++;
+        var ok = btn.dataset.ok==='1', isPt = ['q1','q2','q3','q4'].indexOf(q.id)>=0;
+        if(ok){ correct++; if(isPt)pt++; else en++; btn.classList.add('correct'); fb.className='fb show ok'; fb.textContent='✓ '+fbmsg[q.id]; }
+        else { missed.push(topics[q.id]); btn.classList.add('wrong'); fb.className='fb show no';
+               fb.textContent='✗ '+fbmsg[q.id]; q.querySelector('[data-ok="1"]').classList.add('correct'); }
+        q.querySelectorAll('.opt').forEach(function(b){ b.disabled=true; });
+        if(answered===total) finish();
+      });
+    });
+  });
+  function finish(){
+    var r=document.getElementById('result'); r.classList.add('show');
+    document.getElementById('rtitle').textContent='Resultado: '+correct+' de '+total+' ('+pt+'/4 PT · '+en+'/4 EN)';
+    var t = (pt<=2 && en<=2) ? 'Ambas precisam de construção — vamos com calma, começando pelas regras de maior retorno.'
+          : (pt < en) ? 'Inglês mais firme; Português é a prioridade (crase/regência/concordância rendem muito).'
+          : (en < pt) ? 'Português mais firme; Inglês é a prioridade (tenses, conditionals, reported speech).'
+          : 'Base equilibrada nas duas — vamos aprofundar as pegadinhas que mais caem.';
+    document.getElementById('rtext').textContent = t;
+    document.getElementById('report').textContent =
+      'DIAGNÓSTICO HUMANAS — '+correct+'/'+total+' (Português '+pt+'/4 · Inglês '+en+'/4)\n' +
+      'Tópicos que escorregaram: ' + (missed.length? missed.join(', ') : 'nenhum 🎯');
+  }
+</script>
+</body>
+</html>

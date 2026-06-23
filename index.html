@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudos ASON — Marinha Mercante</title>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --good:#2f5d3a; --gold:#9a7a1f;
+         --phys:#16557a; --port:#7a3b16; --mat:#1f3a5f; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.5;}
+  .wrap{max-width:760px; margin:0 auto; padding:2.4rem 1.2rem 5rem;}
+  header{border-bottom:2px solid var(--marine); padding-bottom:1rem; margin-bottom:1.4rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--marine2);}
+  h1{font-size:1.9rem; line-height:1.12; margin:.3rem 0 .2rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0;}
+  h2{font-size:1.18rem; margin:2rem 0 .2rem; display:flex; align-items:center; gap:.5rem;}
+  h2 .tag{font-size:.7rem; font-weight:400; color:var(--muted); font-style:italic; letter-spacing:0;}
+  .mat h2{color:var(--mat);} .port h2{color:var(--port);} .phys h2{color:var(--phys);} .geral h2{color:var(--marine2);}
+  ul{list-style:none; padding:0; margin:.6rem 0;}
+  li{margin:.45rem 0;}
+  a.card{display:flex; align-items:baseline; gap:.6rem; text-decoration:none; color:var(--ink);
+         background:#fffefa; border:1px solid var(--rule); border-radius:8px;
+         padding:.7rem .9rem; transition:background .12s, border-color .12s;}
+  a.card:hover{background:#f2f0e2; border-color:var(--marine2);}
+  a.card .n{font-variant-numeric:tabular-nums; color:var(--marine2); font-weight:700; font-size:.92rem; min-width:2.1rem;}
+  a.card .t{flex:1;}
+  a.card .badge{font-size:.66rem; text-transform:uppercase; letter-spacing:.06em; padding:.12rem .45rem;
+                border-radius:20px; white-space:nowrap; align-self:center;}
+  .badge.sim{background:#1f3a5f; color:#fff;}
+  .badge.diag{background:#f0e9d2; color:var(--gold); border:1px solid var(--gold);}
+  .intro{background:#f3f1e3; border-left:4px solid var(--marine); padding:.8rem 1rem; border-radius:0 4px 4px 0; margin:1.2rem 0 0;}
+  footer{margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.85rem; color:var(--muted);}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:1.6rem 1rem 4rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Processo Seletivo ASON · CIAGA · Marinha Mercante</div>
+    <h1>⚓ Estudos para o Exame de Conhecimentos</h1>
+    <p class="sub">Matemática · Português · Inglês · Física — lições para estudar de qualquer lugar.</p>
+  </header>
+
+  <div class="intro">Toque numa lição para abrir. Cada uma tem teoria curta e questões com correção na hora.
+  As lições marcadas <span class="badge sim" style="font-size:.6rem">simulado</span> são questões reais de provas passadas.</div>
+
+  <section class="geral">
+    <h2>📍 Visão geral</h2>
+    <ul>
+      <li><a class="card" href="lessons/0001-o-mapa-da-prova.html"><span class="n">01</span><span class="t">O Mapa da Prova e a Lógica da Pontuação</span></a></li>
+    </ul>
+  </section>
+
+  <section class="mat">
+    <h2>🔢 Matemática <span class="tag">— frente forte</span></h2>
+    <ul>
+      <li><a class="card" href="lessons/0002-diagnostico-exatas.html"><span class="n">02</span><span class="t">Onde você está em Matemática</span><span class="badge diag">diagnóstico</span></a></li>
+      <li><a class="card" href="lessons/0003-series-de-taylor.html"><span class="n">03</span><span class="t">Séries de Taylor: a função virando polinômio</span></a></li>
+      <li><a class="card" href="lessons/0005-convergencia-de-series.html"><span class="n">05</span><span class="t">Convergência de Séries</span></a></li>
+      <li><a class="card" href="lessons/0006-simulado-teto-mat-2014.html"><span class="n">06</span><span class="t">Simulado de Teto — Matemática ASON 2014</span><span class="badge sim">simulado</span></a></li>
+      <li><a class="card" href="lessons/0007-edo-primeira-ordem.html"><span class="n">07</span><span class="t">EDOs de 1ª Ordem: o Fator Integrante</span></a></li>
+      <li><a class="card" href="lessons/0008-volume-integral-multipla.html"><span class="n">08</span><span class="t">Volume por Integral Múltipla</span></a></li>
+      <li><a class="card" href="lessons/0009-algebra-linear-conceitual.html"><span class="n">09</span><span class="t">Base, Independência Linear e Dimensão</span></a></li>
+    </ul>
+  </section>
+
+  <section class="port">
+    <h2>✍️ Português &amp; Inglês <span class="tag">— em reconstrução</span></h2>
+    <ul>
+      <li><a class="card" href="lessons/0004-diagnostico-humanas.html"><span class="n">04</span><span class="t">Onde você está em Português e Inglês</span><span class="badge diag">diagnóstico</span></a></li>
+      <li><a class="card" href="lessons/0010-simulado-portugues-2025.html"><span class="n">10</span><span class="t">Simulado de Português — ASON 2025</span><span class="badge sim">simulado</span></a></li>
+      <li><a class="card" href="lessons/0011-funcao-sintatica-termos.html"><span class="n">11</span><span class="t">Função Sintática dos Termos</span></a></li>
+      <li><a class="card" href="lessons/0012-preposicoes.html"><span class="n">12</span><span class="t">Preposições e seus Valores</span></a></li>
+      <li><a class="card" href="lessons/0013-crase.html"><span class="n">13</span><span class="t">Crase: o teste que resolve tudo</span></a></li>
+      <li><a class="card" href="lessons/0014-regencia.html"><span class="n">14</span><span class="t">Regência: quando a palavra exige preposição</span></a></li>
+      <li><a class="card" href="lessons/0015-acentuacao.html"><span class="n">15</span><span class="t">Acentuação</span></a></li>
+    </ul>
+  </section>
+
+  <section class="phys">
+    <h2>⚓ Física <span class="tag">— curso por blocos: Mecânica → Fluidos → Termo → Ondas → Eletromagnetismo</span></h2>
+    <ul>
+      <li><a class="card" href="lessons/0016-simulado-teto-fisica-2014.html"><span class="n">16</span><span class="t">Simulado de Teto — Física ASON 2014</span><span class="badge sim">simulado</span></a></li>
+      <li><a class="card" href="lessons/0018-mecanica-mapa-cinematica.html"><span class="n">18</span><span class="t">Bloco 1 · Mecânica: o mapa + Cinemática</span></a></li>
+      <li><a class="card" href="lessons/0017-fluidos-hidrostatica.html"><span class="n">17</span><span class="t">Bloco 2 · Hidrostática: por que o navio flutua</span></a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Material de estudo pessoal · atualizado conforme avançamos · \(g=10\,\text{m/s}^2\) onde aplicável.
+  </footer>
+</div>
+</body>
+</html>

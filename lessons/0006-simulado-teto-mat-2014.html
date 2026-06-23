@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 6 — Simulado de Teto · Matemática ASON 2014</title>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --warn:#8a2b2b; --good:#2f5d3a; --gold:#9a7a1f; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.55;}
+  .wrap{max-width:720px; margin:0 auto; padding:3.5rem 1.5rem 6rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--marine2); margin-bottom:.4rem;}
+  h1{font-size:1.9rem; line-height:1.12; margin:0 0 .3rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0 0 1.4rem;}
+  .lede{font-size:1.05rem;}
+  p{margin:.6rem 0;}
+  .callout{background:#f3f1e3; border-left:4px solid var(--marine); padding:.7rem 1rem; margin:1.1rem 0; border-radius:0 4px 4px 0; font-size:.95rem;}
+  .timer{position:sticky; top:0; background:var(--marine); color:#fff; padding:.5rem .9rem; border-radius:0 0 8px 8px;
+         font-size:.95rem; display:flex; justify-content:space-between; align-items:center; z-index:5;}
+  .timer b{font-variant-numeric:tabular-nums;}
+  .timer button{font:inherit; font-size:.85rem; background:#fff; color:var(--marine); border:none; border-radius:5px; padding:.25rem .7rem; cursor:pointer;}
+  .qnum{font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; color:var(--marine2); font-weight:700;}
+  .q{border:1px solid var(--rule); border-radius:8px; padding:1.1rem 1.2rem; margin:1.3rem 0; background:#fffefa;}
+  .q .stem{font-weight:600; margin:.2rem 0 .7rem;}
+  .opt{display:block; width:100%; text-align:left; font:inherit; font-size:1rem; background:#fbfaf2;
+       border:1px solid var(--rule); border-radius:6px; padding:.55rem .8rem; margin:.35rem 0; cursor:pointer;}
+  .opt:hover{background:#f2f0e2;}
+  .opt b.letter{color:var(--marine2); margin-right:.4rem;}
+  .opt.correct{background:#e7f0e7; border-color:var(--good); color:var(--good); font-weight:600;}
+  .opt.wrong{background:#f5e6e6; border-color:var(--warn); color:var(--warn);}
+  .opt:disabled{cursor:default;}
+  .fb{margin-top:.55rem; font-size:.92rem; padding:.5rem .7rem; border-radius:5px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:#eef3ec; color:var(--good);} .fb.no{background:#f7ecec; color:var(--warn);}
+  .score{font-size:1.1rem; font-weight:600; margin-top:1.2rem; color:var(--marine);}
+  .ask{background:#1f3a5f; color:#fff; border-radius:6px; padding:1rem 1.2rem; margin:1.8rem 0;}
+  .ask b{color:#ffd98a;}
+  a{color:var(--marine2);}
+  .nav{margin-top:2.2rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.9rem; color:var(--muted);}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:1rem 1.1rem 4rem} }
+</style>
+</head>
+<body>
+<div class="timer">
+  <span>⏱️ Simulado em andamento — meta: <b>~6 min/questão</b></span>
+  <span><b id="clock">00:00</b> <button id="toggle">pausar</button></span>
+</div>
+<div class="wrap">
+  <div class="kicker">Lição 6 · Simulado de teto · questões REAIS</div>
+  <h1>Simulado de Teto — Matemática ASON 2014</h1>
+  <p class="sub">Seis questões originais da prova (nº 21–26). Sem consultar. Resolva como se fosse o dia.</p>
+
+  <p class="lede">Você pediu para medir o teto com provas reais — aqui está. Estas são as questões
+  <strong>exatas</strong> da prova de Matemática do ASON 2014, com o gabarito oficial. Elas cobrem de propósito
+  os tópicos que o diagnóstico não tocou: <strong>EDO, várias variáveis, álgebra linear, integral tripla</strong>.
+  Responda de cabeça (papel e caneta valem); o feedback traz a resolução.</p>
+
+  <div class="callout"><strong>Como ler seu resultado:</strong> 5–6 acertos = teto alto, partimos para velocidade
+  e Física. 3–4 = sabemos exatamente quais tópicos aprofundar. 0–2 = ótimo, achamos onde está o ouro do seu estudo.</div>
+
+  <div class="q" id="q1">
+    <div class="qnum">Questão 21 · derivada (quociente + cadeia)</div>
+    <div class="stem">Dada a função \( f(x) = e^{\frac{x-1}{2-x}} \), podemos afirmar que:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> \( \frac{df}{dx}(0) = -4e \)</button>
+    <button class="opt" data-ok="0"><b class="letter">b)</b> \( \frac{df}{dx}(0) = -4\sqrt{e} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> \( \frac{df}{dx}(0) = -4/\sqrt{e} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">d)</b> \( \frac{df}{dx}(0) = \sqrt{e}/4 \)</button>
+    <button class="opt" data-ok="1"><b class="letter">e)</b> \( \frac{df}{dx}(0) = \sqrt{e}/4e \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <div class="qnum">Questão 22 · autovalores</div>
+    <div class="stem">Seja \( A:\mathbb{R}^2 \to \mathbb{R}^2 \) a transformação linear \( A(x,y) = (x + 2y,\; 4y - x) \). A soma dos autovalores de \(A\) é:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> \( -5 \)</button>
+    <button class="opt" data-ok="0"><b class="letter">b)</b> \( -1 \)</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> \( 0 \)</button>
+    <button class="opt" data-ok="0"><b class="letter">d)</b> \( 1 \)</button>
+    <button class="opt" data-ok="1"><b class="letter">e)</b> \( 5 \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <div class="qnum">Questão 23 · volume (integral tripla)</div>
+    <div class="stem">O volume do sólido limitado pelos planos \( y=0,\ z=0,\ x=0 \) e \( 6x + 2y + 3z = 6 \) é:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> 5 unidades de volume</button>
+    <button class="opt" data-ok="0"><b class="letter">b)</b> 4 unidades de volume</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> 3 unidades de volume</button>
+    <button class="opt" data-ok="0"><b class="letter">d)</b> 2 unidades de volume</button>
+    <button class="opt" data-ok="1"><b class="letter">e)</b> 1 unidade de volume</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <div class="qnum">Questão 24 · espaços vetoriais (V/F)</div>
+    <div class="stem">Analise (V/F):<br>
+      1. \( \{(1,3,5),(3,1,7),(5,3,13)\} \) é uma base de \( \mathbb{R}^3 \).<br>
+      2. \( P_n \) (polinômios de grau \( \le n \)) tem uma base com \( n+1 \) vetores de grau \(n\).<br>
+      3. Se \( \{v_1,v_2,v_3\} \) é LI, então \( \{v_1,\ v_2-v_1,\ v_3-v_1\} \) também é LI.<br>
+      A sequência correta é:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> V – F – V</button>
+    <button class="opt" data-ok="0"><b class="letter">b)</b> F – V – F</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> V – F – F</button>
+    <button class="opt" data-ok="0"><b class="letter">d)</b> V – V – V</button>
+    <button class="opt" data-ok="1"><b class="letter">e)</b> F – V – V</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <div class="qnum">Questão 25 · equação diferencial</div>
+    <div class="stem">Uma função \( y=f(x) \) satisfaz a EDO \( xy' + y = \ln(x) \), com \( x>0 \). Sabendo que \( f(1) = -3 \), pode-se afirmar que \( f'(3) \) é igual a:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> \( \frac{2}{9} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">b)</b> \( -\frac{2}{9} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> \( \frac{4}{9} \)</button>
+    <button class="opt" data-ok="1"><b class="letter">d)</b> \( \frac{5}{9} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">e)</b> \( 0 \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q6">
+    <div class="qnum">Questão 26 · derivada parcial</div>
+    <div class="stem">A derivada parcial \( \dfrac{\partial f}{\partial y} \) da função \( f(x,y) = \sqrt{x^2 + y^2} \) é igual a:</div>
+    <button class="opt" data-ok="0"><b class="letter">a)</b> \( \dfrac{x}{\sqrt{x^2+y^2}} \)</button>
+    <button class="opt" data-ok="1"><b class="letter">b)</b> \( \dfrac{y}{\sqrt{x^2+y^2}} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">c)</b> \( \dfrac{xy}{\sqrt{x^2+y^2}} \)</button>
+    <button class="opt" data-ok="0"><b class="letter">d)</b> \( \dfrac{\sqrt{x^2+y^2}}{x} \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="score" id="score"></div>
+
+  <div class="ask">
+    <b>Sou seu professor.</b> Mande seu placar no chat (ex.: "4/6, errei a EDO e a tripla") e eu monto a
+    próxima lição exatamente no tópico onde você quebrou. Qualquer questão dessas que queira ver resolvida
+    <em>passo a passo</em>, é só pedir — todas têm gabarito comentado nos PDFs que você trouxe.
+  </div>
+
+  <div class="nav">
+    Lição 6 · Fonte: <em>ASON-2014, Matemática, questões 21–26</em> (gabarito comentado, prof. R. C. S. de Lima) ·
+    Plano: <a href="../reference/cronograma-9-meses.html">Cronograma</a> ·
+    Anterior: <a href="0005-convergencia-de-series.html">Lição 5 — Convergência</a>
+  </div>
+</div>
+
+<script>
+  var fbmsg = {
+    q1:'Letra <b>e)</b>. Pela regra do quociente no expoente \\(\\left(\\frac{x-1}{2-x}\\right)\' = \\frac{1}{(2-x)^2}\\) e cadeia: \\(f\'(0)=\\frac{2-1}{4}e^{-1/2}=\\frac{\\sqrt e}{4e}\\).',
+    q2:'Letra <b>e)</b>. Matriz \\(\\begin{bmatrix}1&2\\\\-1&4\\end{bmatrix}\\); a soma dos autovalores é o traço: \\(1+4=5\\).',
+    q3:'Letra <b>e)</b>. Tetraedro de vértices \\((1,0,0),(0,3,0),(0,0,2)\\): \\(V=\\frac13\\cdot\\frac{3\\cdot1}{2}\\cdot2=1\\).',
+    q4:'Letra <b>e)</b> (F–V–V). O determinante dos 3 vetores é 0 → LD → não é base (F). As outras duas são verdadeiras.',
+    q5:'Letra <b>d)</b>. O lado esquerdo é \\((yx)\'\\); integrando, \\(y=\\ln x -1+\\frac{c}{x}\\). De \\(f(1)=-3\\) vem \\(c=-2\\); \\(y\'=\\frac1x+\\frac{2}{x^2}\\Rightarrow y\'(3)=\\frac13+\\frac29=\\frac59\\).',
+    q6:'Letra <b>b)</b>. Tratando \\(x\\) como constante: \\(\\frac{\\partial}{\\partial y}\\sqrt{x^2+y^2}=\\frac{y}{\\sqrt{x^2+y^2}}\\).'
+  };
+  var total = document.querySelectorAll('.q').length, answered = 0, correct = 0;
+  document.querySelectorAll('.q').forEach(function(q){
+    var fb = q.querySelector('.fb'), done=false;
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(done) return; done=true; answered++;
+        var ok = btn.dataset.ok==='1';
+        if(ok){ correct++; btn.classList.add('correct'); fb.className='fb show ok'; fb.innerHTML='✓ '+fbmsg[q.id]; }
+        else { btn.classList.add('wrong'); fb.className='fb show no';
+               fb.innerHTML='✗ '+fbmsg[q.id];
+               var c=q.querySelector('[data-ok="1"]'); if(c) c.classList.add('correct'); }
+        q.querySelectorAll('.opt').forEach(function(b){ b.disabled=true; });
+        if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([fb]);
+        if(answered===total){
+          stopClock();
+          var s=document.getElementById('score');
+          var verdict = correct>=5?'Teto alto. Partimos para velocidade + Física.'
+                      : correct>=3?'Bom — já sabemos quais tópicos aprofundar.'
+                      : 'Achamos o ouro do seu estudo. Vamos construir esses tópicos.';
+          s.innerHTML='Placar: <strong>'+correct+'/'+total+'</strong> em '+document.getElementById('clock').textContent+'. '+verdict;
+        }
+      });
+    });
+  });
+  // cronômetro
+  var secs=0, running=true, iv=setInterval(tick,1000);
+  function tick(){ if(!running) return; secs++; render(); }
+  function render(){ var m=Math.floor(secs/60), s=secs%60;
+    document.getElementById('clock').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s; }
+  function stopClock(){ running=false; clearInterval(iv); }
+  document.getElementById('toggle').addEventListener('click', function(){
+    running=!running; this.textContent=running?'pausar':'continuar'; });
+</script>
+</body>
+</html>

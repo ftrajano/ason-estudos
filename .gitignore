@@ -1,0 +1,11 @@
+# Conteúdo PESSOAL — nunca publicar no GitHub Pages.
+# Só `index.html` e `lessons/` vão para a web.
+/NOTES.md
+/MISSION.md
+/RESOURCES.md
+/GLOSSARY.md
+/learning-records/
+/reference/
+
+# Lixo do sistema
+.DS_Store

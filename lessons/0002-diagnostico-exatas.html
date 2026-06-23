@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 2 — Diagnóstico de Exatas</title>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --warn:#8a2b2b; --good:#2f5d3a; --gold:#9a7a1f; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.55;}
+  .wrap{max-width:720px; margin:0 auto; padding:3.5rem 1.5rem 6rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--marine2); margin-bottom:.4rem;}
+  h1{font-size:2rem; line-height:1.12; margin:0 0 .3rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0 0 1.6rem;}
+  h2{font-size:1.25rem; margin:2.2rem 0 .5rem; color:var(--marine);}
+  p{margin:.6rem 0;}
+  .lede{font-size:1.06rem;}
+  .ask{background:#1f3a5f; color:#fff; border-radius:6px; padding:1rem 1.2rem; margin:1.8rem 0;}
+  .ask b{color:#ffd98a;}
+  a{color:var(--marine2);}
+  .lvl{display:inline-block; font-size:.7rem; font-style:normal; text-transform:uppercase; letter-spacing:.05em;
+       background:#e8e6d6; color:var(--muted); padding:.08rem .4rem; border-radius:3px; margin-left:.4rem; vertical-align:middle;}
+  .q{border:1px solid var(--rule); border-radius:8px; padding:1.1rem 1.2rem; margin:1.3rem 0; background:#fffefa;}
+  .q .stem{font-weight:600; margin-bottom:.2rem;}
+  .topic{font-size:.8rem; color:var(--muted); font-style:italic; margin-bottom:.6rem;}
+  .opt{display:block; width:100%; text-align:left; font:inherit; font-size:1rem; background:#fbfaf2;
+       border:1px solid var(--rule); border-radius:6px; padding:.55rem .8rem; margin:.35rem 0; cursor:pointer;}
+  .opt:hover{background:#f2f0e2;}
+  .opt.correct{background:#e7f0e7; border-color:var(--good); color:var(--good); font-weight:600;}
+  .opt.wrong{background:#f5e6e6; border-color:var(--warn); color:var(--warn);}
+  .opt:disabled{cursor:default;}
+  .fb{margin-top:.55rem; font-size:.9rem; padding:.5rem .7rem; border-radius:5px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:#eef3ec; color:var(--good);} .fb.no{background:#f7ecec; color:var(--warn);}
+  #result{display:none; margin-top:1.8rem; padding:1.2rem 1.3rem; border:1px solid var(--gold);
+          background:#f5f1df; border-radius:8px;}
+  #result.show{display:block;} #result h2{margin-top:0;}
+  #report{background:#fff; border:1px dashed var(--marine2); border-radius:6px; padding:.7rem .9rem;
+          font-family:ui-monospace,Menlo,monospace; font-size:.85rem; white-space:pre-wrap; margin:.8rem 0;}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:2.2rem 1.1rem 4rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Lição 2 · Diagnóstico · Exatas</div>
+  <h1>Onde você está em Matemática</h1>
+  <p class="sub">Não é prova. É um sonar: descobrir a que profundidade começar.</p>
+
+  <p class="lede">Oito questões que sobem do pré-cálculo às séries. Responda <strong>de cabeça, sem pesquisar</strong> —
+  o objetivo é achar a fronteira entre "isso eu lembro" e "isso preciso reativar". Errar é informação, não fracasso.
+  No fim, a tela monta um relatório para você me mandar no chat.</p>
+
+  <div class="q" id="q1">
+    <div class="stem">1. Qual é o domínio de \( f(x) = \dfrac{\sqrt{x - 2}}{x - 5} \)? <span class="lvl">pré-cálculo</span></div>
+    <div class="topic">Tópico: Funções</div>
+    <button class="opt" data-ok="1">\( x \ge 2 \) e \( x \ne 5 \)</button>
+    <button class="opt" data-ok="0">\( x &gt; 2 \), sem restrição</button>
+    <button class="opt" data-ok="0">todo número real \( x \)</button>
+    <button class="opt" data-ok="0">\( x \le 2 \) e \( x \ne 5 \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <div class="stem">2. \( \displaystyle\lim_{x \to 3} \dfrac{x^2 - 9}{x - 3} \) = ? <span class="lvl">cálculo I</span></div>
+    <div class="topic">Tópico: Limites (indeterminação 0/0)</div>
+    <button class="opt" data-ok="0">\( 0 \)</button>
+    <button class="opt" data-ok="1">\( 6 \)</button>
+    <button class="opt" data-ok="0">\( 3 \)</button>
+    <button class="opt" data-ok="0">não existe</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <div class="stem">3. \( \dfrac{d}{dx}\left[\, \sin(x^2) \,\right] \) = ? <span class="lvl">cálculo I</span></div>
+    <div class="topic">Tópico: Derivadas (regra da cadeia)</div>
+    <button class="opt" data-ok="0">\( \cos(x^2) \)</button>
+    <button class="opt" data-ok="1">\( 2x\,\cos(x^2) \)</button>
+    <button class="opt" data-ok="0">\( 2x\,\sin(x^2) \)</button>
+    <button class="opt" data-ok="0">\( \cos(2x) \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <div class="stem">4. A reta tangente a \( f(x) = x^3 \) no ponto \( x = 1 \) é: <span class="lvl">cálculo I</span></div>
+    <div class="topic">Tópico: Aplicações de derivada</div>
+    <button class="opt" data-ok="1">\( y = 3x - 2 \)</button>
+    <button class="opt" data-ok="0">\( y = 3x + 1 \)</button>
+    <button class="opt" data-ok="0">\( y = x - 2 \)</button>
+    <button class="opt" data-ok="0">\( y = 3x \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <div class="stem">5. \( \displaystyle\int 2x\,e^{x^2}\,dx \) = ? <span class="lvl">cálculo I/II</span></div>
+    <div class="topic">Tópico: Integração (substituição)</div>
+    <button class="opt" data-ok="0">\( x^2\,e^{x^2} + C \)</button>
+    <button class="opt" data-ok="1">\( e^{x^2} + C \)</button>
+    <button class="opt" data-ok="0">\( 2\,e^{x^2} + C \)</button>
+    <button class="opt" data-ok="0">\( e^{2x} + C \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q6">
+    <div class="stem">6. \( \displaystyle\int_{0}^{1} 3x^2\,dx \) = ? <span class="lvl">cálculo I/II</span></div>
+    <div class="topic">Tópico: Integral definida / área</div>
+    <button class="opt" data-ok="0">\( 3 \)</button>
+    <button class="opt" data-ok="1">\( 1 \)</button>
+    <button class="opt" data-ok="0">\( 2 \)</button>
+    <button class="opt" data-ok="0">\( \tfrac{1}{3} \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q7">
+    <div class="stem">7. O determinante de \( \begin{bmatrix} 2 & 1 \\ 3 & 4 \end{bmatrix} \) é: <span class="lvl">álg. linear</span></div>
+    <div class="topic">Tópico: Determinantes</div>
+    <button class="opt" data-ok="0">\( 11 \)</button>
+    <button class="opt" data-ok="1">\( 5 \)</button>
+    <button class="opt" data-ok="0">\( 8 \)</button>
+    <button class="opt" data-ok="0">\( -5 \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q8">
+    <div class="stem">8. Na série de Maclaurin \( e^{x} = \displaystyle\sum_{n=0}^{\infty} \dfrac{x^{n}}{n!} \), o coeficiente de \( x^3 \) é: <span class="lvl">séries</span></div>
+    <div class="topic">Tópico: Séries de Taylor</div>
+    <button class="opt" data-ok="0">\( 3 \)</button>
+    <button class="opt" data-ok="0">\( \tfrac{1}{3} \)</button>
+    <button class="opt" data-ok="1">\( \tfrac{1}{6} \)</button>
+    <button class="opt" data-ok="0">\( \tfrac{1}{9} \)</button>
+    <div class="fb"></div>
+  </div>
+
+  <div id="result">
+    <h2 id="rtitle"></h2>
+    <p id="rtext"></p>
+    <p>Copie isto e me mande no chat:</p>
+    <div id="report"></div>
+  </div>
+
+  <div class="ask">
+    <b>Quando terminar, me diga 2 coisas no chat:</b> (1) o relatório acima e
+    (2) <strong>quantas horas por semana</strong> você consegue estudar. Com isso eu defino exatamente
+    por onde começamos e monto seu cronograma até a prova. Travou em alguma questão? Me pergunte —
+    explico o raciocínio na hora.
+  </div>
+  <p style="font-size:.9rem;color:#6b6b60">Referência: <a href="../reference/edital-mapa-ason.html">Mapa do Concurso ASON</a> ·
+  Anterior: <a href="0001-o-mapa-da-prova.html">Lição 1 — O Mapa da Prova</a></p>
+</div>
+
+<script>
+  var topics = {q1:'Funções',q2:'Limites',q3:'Derivadas (cadeia)',q4:'Aplic. de derivada',
+                q5:'Integração (subst.)',q6:'Integral definida',q7:'Determinantes',q8:'Séries de Taylor'};
+  var fbmsg = {
+    q1:'\\( \\sqrt{\\;} \\) exige radicando \\( \\ge 0 \\) (\\(x\\ge 2\\)) e o denominador \\( \\ne 0 \\) (\\(x\\ne 5\\)).',
+    q2:'Fatore: \\( x^2-9=(x-3)(x+3) \\); cancela \\((x-3)\\) e resta \\( x+3 \\to 6 \\).',
+    q3:'Cadeia: derivada de fora \\((\\cos)\\) vezes derivada de dentro \\((2x)\\) \\( \\Rightarrow 2x\\cos(x^2) \\).',
+    q4:'\\( f(1)=1,\\ f\'(x)=3x^2,\\ f\'(1)=3 \\). Reta: \\( y-1=3(x-1)\\Rightarrow y=3x-2 \\).',
+    q5:'Substituição \\( u=x^2,\\ du=2x\\,dx \\Rightarrow \\int e^u\\,du = e^{x^2}+C \\).',
+    q6:'Primitiva de \\(3x^2\\) é \\(x^3\\); de 0 a 1 \\( \\Rightarrow 1-0=1 \\).',
+    q7:'\\( \\det = (2\\cdot 4)-(1\\cdot 3)=8-3=5 \\).',
+    q8:'Coeficiente de \\(x^3\\) é \\( \\dfrac{1}{3!}=\\dfrac{1}{6} \\).'
+  };
+  var total = 8, answered = 0, correct = 0, missed = [];
+  document.querySelectorAll('.q').forEach(function(q){
+    var fb = q.querySelector('.fb'), done=false;
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(done) return; done=true; answered++;
+        var ok = btn.dataset.ok==='1';
+        if(ok){ correct++; btn.classList.add('correct'); fb.className='fb show ok'; fb.innerHTML='✓ '+fbmsg[q.id]; }
+        else { missed.push(topics[q.id]); btn.classList.add('wrong'); fb.className='fb show no';
+               fb.innerHTML='✗ '+fbmsg[q.id]; q.querySelector('[data-ok="1"]').classList.add('correct'); }
+        q.querySelectorAll('.opt').forEach(function(b){ b.disabled=true; });
+        if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([fb]);
+        if(answered===total) finish();
+      });
+    });
+  });
+  function finish(){
+    var r=document.getElementById('result'); r.classList.add('show');
+    var lvl = correct>=7?'Base sólida — vamos direto ao que está enferrujado e ao nível mais profundo (séries, EDO, álg. linear).'
+            : correct>=4?'Base existente, com lacunas claras — reativação focada nos tópicos abaixo.'
+            : 'Vamos reconstruir do cálculo I com calma e segurança. Totalmente normal — a base de engenharia volta rápido.';
+    document.getElementById('rtitle').textContent='Resultado: '+correct+' de '+total+' acertos';
+    document.getElementById('rtext').textContent=lvl;
+    document.getElementById('report').textContent =
+      'DIAGNÓSTICO EXATAS — '+correct+'/'+total+' acertos\n' +
+      'Tópicos que escorregaram: ' + (missed.length? missed.join(', ') : 'nenhum 🎯') +
+      '\nHoras/semana que consigo estudar: ____';
+  }
+</script>
+</body>
+</html>
