@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 19 — Leis de Newton e o diagrama de forças</title>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+  :root{ --paper:#fffff8; --ink:#1a1a14; --muted:#6b6b60; --rule:#d8d8cc;
+         --marine:#1f3a5f; --marine2:#34618e; --warn:#8a2b2b; --good:#2f5d3a; --gold:#9a7a1f; --phys:#16557a; }
+  *{box-sizing:border-box}
+  html{font-size:17px}
+  body{background:var(--paper); color:var(--ink); margin:0;
+       font-family:"Iowan Old Style",Georgia,"Times New Roman",serif; line-height:1.55;}
+  .wrap{max-width:720px; margin:0 auto; padding:3.5rem 1.5rem 6rem;}
+  .kicker{font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:var(--marine2); margin-bottom:.4rem;}
+  h1{font-size:1.85rem; line-height:1.12; margin:0 0 .3rem; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-style:italic; margin:0 0 1.6rem;}
+  h2{font-size:1.28rem; margin:2.2rem 0 .5rem; color:var(--phys);}
+  p{margin:.6rem 0;} .lede{font-size:1.08rem;}
+  .callout{background:#f3f1e3; border-left:4px solid var(--marine); padding:.8rem 1rem; margin:1.2rem 0; border-radius:0 4px 4px 0;}
+  .good{background:#eef3ec; border-left-color:var(--good);}
+  .warn{background:#f7ecec; border-left-color:var(--warn);} .warn b{color:var(--warn);}
+  .key{background:#eaf2f7; border:1px solid var(--phys); border-radius:8px; padding:1rem 1.2rem; margin:1.3rem 0;}
+  .key b{color:var(--phys);}
+  .win{background:#f5f1df; border:1px solid var(--gold); border-radius:6px; padding:1rem 1.2rem; margin:1.5rem 0;}
+  .win b{color:var(--gold);}
+  table{border-collapse:collapse; width:100%; margin:.8rem 0; font-size:.92rem;}
+  th,td{border:1px solid var(--rule); padding:.45rem .6rem; text-align:left; vertical-align:top;}
+  th{background:#e9eff3; color:var(--phys);}
+  .ex{font-style:italic; color:#555;}
+  code{background:#e6ecf0; padding:.05rem .3rem; border-radius:3px; font-size:.92em;}
+  .worked{background:#fbfaf2; border:1px solid var(--rule); border-radius:8px; padding:1rem 1.2rem; margin:1.3rem 0;}
+  .worked .step{margin:.45rem 0; padding-left:1.4rem; text-indent:-1.4rem;}
+  .q{border:1px solid var(--rule); border-radius:8px; padding:1.1rem 1.2rem; margin:1.2rem 0; background:#fffefa;}
+  .q .stem{font-weight:600; margin-bottom:.6rem;}
+  .opt{display:block; width:100%; text-align:left; font:inherit; font-size:1rem; background:#fbfaf2;
+       border:1px solid var(--rule); border-radius:6px; padding:.55rem .8rem; margin:.35rem 0; cursor:pointer;}
+  .opt:hover{background:#f2f0e2;}
+  .opt.correct{background:#e7f0e7; border-color:var(--good); color:var(--good); font-weight:600;}
+  .opt.wrong{background:#f5e6e6; border-color:var(--warn); color:var(--warn);}
+  .opt:disabled{cursor:default;}
+  .fb{margin-top:.55rem; font-size:.9rem; padding:.5rem .7rem; border-radius:5px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:#eef3ec; color:var(--good);} .fb.no{background:#f7ecec; color:var(--warn);}
+  .score{font-size:1.05rem; font-weight:600; margin-top:1rem; color:var(--phys);}
+  .ask{background:#1f3a5f; color:#fff; border-radius:6px; padding:1rem 1.2rem; margin:1.8rem 0;}
+  .ask b{color:#ffd98a;}
+  .src{background:#eef1f5; border-radius:6px; padding:1rem 1.2rem; margin:1.5rem 0;}
+  a{color:var(--marine2);}
+  .nav{margin-top:2.2rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.9rem; color:var(--muted);}
+  @media (max-width:620px){ html{font-size:16px} .wrap{padding:2.2rem 1.1rem 4rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Lição 19 · Física · BLOCO 1: Mecânica · 2 de 6</div>
+  <h1>As Leis de Newton e o diagrama de forças</h1>
+  <p class="sub">O tronco do bloco — o "por quê" que faltou na Lição 18.</p>
+
+  <p class="lede">Na Lição 18 a cinemática <em>descreveu</em> o movimento. Agora vem a <strong>causa</strong>:
+  por que um corpo acelera? Resposta em uma linha — <strong>porque uma força resultante age sobre ele</strong>.
+  Isso é a dinâmica, e ela cabe em três leis e uma figura (o diagrama de forças). Domine isto e metade da
+  física da prova vira conta sua.</p>
+
+  <h2>As três leis — o que cada uma realmente diz</h2>
+  <div class="key">
+    <p><b>1ª lei (inércia):</b> sem força resultante, a velocidade <strong>não muda</strong> — o corpo fica em
+    repouso ou em MRU. Force é o que <em>muda</em> movimento, não o que o mantém.</p>
+    <p style="margin-top:.5rem"><b>2ª lei (a fundamental):</b> a força resultante dá a aceleração —
+    \(\;\vec{F}_{res}=m\,\vec{a}\). Mais força → mais aceleração; mais massa → menos aceleração (inércia).</p>
+    <p style="margin-top:.5rem"><b>3ª lei (ação e reação):</b> toda força vem aos pares, iguais e opostas, mas
+    <strong>em corpos diferentes</strong>. O hélice empurra a água pra trás; a água empurra o navio pra frente.</p>
+  </div>
+  <div class="callout warn"><b>A armadilha da 3ª lei:</b> ação e reação <strong>nunca se cancelam</strong>, porque
+  agem em corpos diferentes. Só se somam (ou cancelam) forças <em>no mesmo corpo</em>. Confundir isso é erro clássico de prova.</div>
+
+  <h2>★ O diagrama de forças (corpo livre) — a habilidade central</h2>
+  <p>Quase toda questão de dinâmica se resolve com o mesmo ritual: <strong>isole o corpo e desenhe só as forças
+  que agem nele.</strong> As que aparecem na prova:</p>
+  <table>
+    <tr><th>Força</th><th>Símbolo</th><th>Direção</th><th>Quanto vale</th></tr>
+    <tr><td>Peso</td><td>\(P\)</td><td>sempre <b>para baixo</b></td><td>\(P=m g\)</td></tr>
+    <tr><td>Normal</td><td>\(N\)</td><td><b>perpendicular</b> à superfície</td><td>o que o equilíbrio exigir (≠ peso nem sempre)</td></tr>
+    <tr><td>Tração</td><td>\(T\)</td><td>ao longo do <b>cabo/corda</b></td><td>o que o problema pedir</td></tr>
+    <tr><td>Atrito</td><td>\(f\)</td><td><b>contra</b> o escorregar</td><td>\(f=\mu N\)</td></tr>
+  </table>
+  <div class="key">
+    <p><b>Receita (vale pra quase tudo):</b></p>
+    <p style="margin:.3rem 0 0">1. Isole o corpo. &nbsp; 2. Desenhe todas as forças nele. &nbsp;
+    3. Escolha um eixo positivo. &nbsp; 4. Some as forças com sinal e escreva \(F_{res}=m a\). &nbsp; 5. Resolva.</p>
+  </div>
+
+  <div class="callout"><b>Peso ≠ massa.</b> Massa (kg) é quanta matéria há — não muda. Peso (newton) é a força
+  da gravidade sobre ela: \(P=mg\). Na prova, \(m=80\) kg → \(P=800\) N. Trocar os dois é erro caro.</div>
+
+  <h2>Resolvido: guindaste içando um contêiner</h2>
+  <div class="worked">
+    <p><em>Um guindaste iça um contêiner de \(m=500\) kg acelerando para cima a \(a=2\,\text{m/s}^2\)
+    (\(g=10\)). Qual a tração \(T\) no cabo?</em></p>
+    <p class="step"><b>1.</b> Isole o contêiner. Forças: tração \(T\) (↑) e peso \(P=mg\) (↓).</p>
+    <p class="step"><b>2.</b> Positivo = para cima. Resultante: \(T - P = m a\).</p>
+    <p class="step"><b>3.</b> Substitua: \(T = m a + m g = m(a+g) = 500(2+10) = 500\cdot 12\).</p>
+    <p class="step"><b>✔</b> \(T = 6000\) N. (Repare: subindo acelerado, o cabo puxa <em>mais</em> que o peso de 5000 N — por isso cabos têm margem.)</p>
+  </div>
+  <p class="ex">Se estivesse <strong>parado ou em velocidade constante</strong> (\(a=0\)), seria \(T=P=5000\) N.
+  Descendo acelerado, seria <em>menos</em>. A mesma equação cobre os três casos — esse é o poder de \(F=ma\).</p>
+
+  <h2>Pratique</h2>
+  <p class="ex">Use \(g=10\). O feedback traz o diagrama em palavras.</p>
+
+  <div class="q" id="q1">
+    <div class="stem">1. Um contêiner desliza sobre o convés com velocidade constante (sem acelerar). O que se pode
+    afirmar sobre a força resultante nele?</div>
+    <button class="opt" data-ok="1">É nula — sem resultante, a velocidade não muda (1ª lei)</button>
+    <button class="opt" data-ok="0">Aponta para a frente, mantendo o movimento</button>
+    <button class="opt" data-ok="0">É igual ao peso</button>
+    <button class="opt" data-ok="0">Cresce com o tempo</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <div class="stem">2. Uma força resultante de 60 N age sobre um carrinho de 4 kg. A aceleração é:</div>
+    <button class="opt" data-ok="0">240 m/s²</button>
+    <button class="opt" data-ok="1">15 m/s²</button>
+    <button class="opt" data-ok="0">64 m/s²</button>
+    <button class="opt" data-ok="0">0,067 m/s²</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <div class="stem">3. Um marinheiro tem massa de 75 kg. Seu peso (na Terra, \(g=10\)) é:</div>
+    <button class="opt" data-ok="0">75 N</button>
+    <button class="opt" data-ok="1">750 N</button>
+    <button class="opt" data-ok="0">7,5 N</button>
+    <button class="opt" data-ok="0">7500 N</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <div class="stem">4. Um elevador iça uma carga de 200 kg acelerando para cima a 3 m/s². A tração no cabo é:</div>
+    <button class="opt" data-ok="0">600 N</button>
+    <button class="opt" data-ok="0">2000 N</button>
+    <button class="opt" data-ok="1">2600 N</button>
+    <button class="opt" data-ok="0">1400 N</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <div class="stem">5. Um caixote apoiado no convés tem normal \(N=400\) N e coeficiente de atrito \(\mu=0{,}3\). A força
+    de atrito máxima que segura o caixote é:</div>
+    <button class="opt" data-ok="0">1333 N</button>
+    <button class="opt" data-ok="1">120 N</button>
+    <button class="opt" data-ok="0">400 N</button>
+    <button class="opt" data-ok="0">12 N</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="q" id="q6">
+    <div class="stem">6. O hélice de um navio empurra a água para trás e o navio avança. Isso é exemplo de qual lei?</div>
+    <button class="opt" data-ok="0">1ª lei (inércia)</button>
+    <button class="opt" data-ok="0">2ª lei (F = ma)</button>
+    <button class="opt" data-ok="1">3ª lei (ação e reação, em corpos diferentes)</button>
+    <button class="opt" data-ok="0">Nenhuma — é só empuxo</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="score" id="score"></div>
+
+  <div class="win">
+    <p><b>★ Sua vitória de hoje:</b> o tronco da mecânica — as <strong>três leis</strong> (inércia, \(F=ma\),
+    ação-reação em corpos diferentes) e o <strong>diagrama de forças</strong> com a receita de 5 passos. Peso
+    \(=mg\), normal e tração saem do equilíbrio, atrito \(=\mu N\). Com isto, energia e momento (próximas)
+    viram só atalhos desta base.</p>
+  </div>
+
+  <div class="src">
+    <strong>📖 Fonte primária:</strong> <strong>Halliday, Resnick &amp; Walker, <em>Fundamentos de Física</em>,
+    vol. 1 — caps. "Força e movimento I e II".</strong> Treine o diagrama de corpo livre até virar automático:
+    é a habilidade que mais rende em dinâmica.
+  </div>
+
+  <div class="ask">
+    <b>Sou seu professor.</b> Mande o placar (ex.: "6/6" ou "errei a 4, esqueci de somar g"). Se 5–6, seguimos
+    pra <strong>Lição 20 — Trabalho e Energia</strong>, o primeiro atalho. Se menos, refinamos o diagrama antes.
+  </div>
+
+  <div class="nav">
+    Lição 19 · Bloco 1 (Mecânica) 2/6 · Próxima: Trabalho e Energia ·
+    Anterior: <a href="0018-mecanica-mapa-cinematica.html">Lição 18 — Mapa + Cinemática</a>
+  </div>
+</div>
+
+<script>
+  var fbmsg = {
+    q1:'<b>É nula.</b> 1ª lei: velocidade constante ⇒ aceleração zero ⇒ força resultante zero. As forças existentes (empurrão, atrito) se cancelam. Força não é o que mantém o movimento — é o que o muda.',
+    q2:'<b>15 m/s².</b> 2ª lei: \\(a = F/m = 60/4 = 15\\) m/s². (Mais massa daria menos aceleração — é a inércia.)',
+    q3:'<b>750 N.</b> Peso \\(=mg = 75\\cdot 10 = 750\\) N. Massa é 75 kg (não muda); peso é a força da gravidade sobre ela.',
+    q4:'<b>2600 N.</b> Subindo acelerado: \\(T - mg = ma \\Rightarrow T = m(g+a) = 200(10+3) = 200\\cdot 13 = 2600\\) N. Acelerar pra cima exige puxar mais que o peso (2000 N).',
+    q5:'<b>120 N.</b> Atrito \\(f = \\mu N = 0{,}3\\cdot 400 = 120\\) N. Depende da normal, não do peso diretamente (aqui calham de bater, mas nem sempre).',
+    q6:'<b>3ª lei.</b> Ação (hélice→água, para trás) e reação (água→navio, para frente), em corpos diferentes. Por isso não se cancelam: a do navio é que o faz avançar. É o mesmo princípio do foguete.'
+  };
+  var total=6, answered=0, correct=0;
+  document.querySelectorAll('.q').forEach(function(q){
+    var fb=q.querySelector('.fb'), done=false;
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(done) return; done=true; answered++;
+        var ok=btn.dataset.ok==='1';
+        if(ok){ correct++; btn.classList.add('correct'); fb.className='fb show ok'; fb.innerHTML='✓ '+fbmsg[q.id]; }
+        else { btn.classList.add('wrong'); fb.className='fb show no'; fb.innerHTML='✗ '+fbmsg[q.id];
+               var c=q.querySelector('[data-ok="1"]'); if(c) c.classList.add('correct'); }
+        q.querySelectorAll('.opt').forEach(function(b){ b.disabled=true; });
+        if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([fb]);
+        if(answered===total){
+          var s=document.getElementById('score');
+          s.innerHTML='Placar: <strong>'+correct+'/'+total+'</strong>. '+
+            (correct>=5?'Tronco da mecânica reativado. ⚓ Pronto pros atalhos (energia e momento).':'Releia a receita do diagrama de forças — isole o corpo, desenhe, escolha o eixo, F=ma. A conta é a parte fácil.');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
